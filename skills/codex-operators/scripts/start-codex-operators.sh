@@ -114,6 +114,10 @@ find_running_url() {
 
 trainer_url() {
   local base="$1"
+  if [[ "$RESET" -eq 1 ]]; then
+    printf '%s/?reset=1&trainer=1\n' "${base%/}"
+    return 0
+  fi
   printf '%s/?trainer=1\n' "${base%/}"
 }
 
