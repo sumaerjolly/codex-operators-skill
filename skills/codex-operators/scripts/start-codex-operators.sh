@@ -128,6 +128,30 @@ prepare_field_kit() {
   fi
 
   mkdir -p "${dirs[@]}"
+
+  if [[ ! -f "$FIELD_KIT/START-HERE.md" ]]; then
+    cat > "$FIELD_KIT/START-HERE.md" <<'MARKDOWN'
+# Codex Operators Field Kit
+
+This folder is your local practice workspace for Codex Operators.
+
+- The browser mission screen tells you what to do next.
+- Codex chat does the actual work.
+- Proof files appear here so you can inspect what Codex created.
+
+The main lesson: ChatGPT answers in chat. Codex can operate on local files.
+MARKDOWN
+  fi
+
+  if [[ ! -f "$FIELD_KIT/Proof/README.md" ]]; then
+    cat > "$FIELD_KIT/Proof/README.md" <<'MARKDOWN'
+# Proof
+
+Mission proof files go here when the lesson asks Codex to create something on your Desktop.
+
+Open these files in Codex and in Finder. The point is to verify real local work, not just read a chat reply.
+MARKDOWN
+  fi
 }
 
 install_dependencies() {
