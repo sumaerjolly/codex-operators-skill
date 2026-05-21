@@ -127,6 +127,7 @@ prepare_field_kit() {
     "$FIELD_KIT/Inputs"
     "$FIELD_KIT/Proof"
     "$FIELD_KIT/Receipts"
+    "$FIELD_KIT/Sheets"
     "$FIELD_KIT/Connector Demos"
     "$FIELD_KIT/Outputs"
     "$FIELD_KIT/Skills"
@@ -186,6 +187,70 @@ Done when:
 - The artifact includes source notes or verification details.
 - The next action is clear.
 MARKDOWN
+  fi
+
+  if [[ ! -f "$FIELD_KIT/Receipts/receipt-001.txt" ]]; then
+    cat > "$FIELD_KIT/Receipts/receipt-001.txt" <<'TEXT'
+Merchant: CloudDesk
+Date: 2026-05-01
+Amount: 129.00
+Category: Software
+Payment Method: Card
+Notes: Support inbox tool
+TEXT
+    cat > "$FIELD_KIT/Receipts/receipt-002.txt" <<'TEXT'
+Merchant: Northstar Cafe
+Date: 2026-05-03
+Amount: 46.80
+Category: Meals
+Payment Method: Card
+Notes: Launch review working session
+TEXT
+    cat > "$FIELD_KIT/Receipts/receipt-003.txt" <<'TEXT'
+Merchant: Metro Print
+Date: 2026-05-05
+Amount: 78.45
+Category: Marketing
+Payment Method: Card
+Notes: Demo handouts
+TEXT
+    cat > "$FIELD_KIT/Receipts/receipt-004.txt" <<'TEXT'
+Merchant: FlyRail
+Date: 2026-05-08
+Amount: 214.20
+Category: Travel
+Payment Method: Card
+Notes: Customer visit
+TEXT
+    cat > "$FIELD_KIT/Receipts/receipt-005.txt" <<'TEXT'
+Merchant: SheetStack
+Date: 2026-05-10
+Amount: 39.00
+Category: Software
+Payment Method: Card
+Notes: Spreadsheet cleanup plugin
+TEXT
+    cat > "$FIELD_KIT/Receipts/receipt-006.txt" <<'TEXT'
+Merchant: Harbor Supplies
+Date: 2026-05-12
+Amount: 18.75
+Category: Office
+Payment Method: Cash
+Notes: Whiteboard markers
+TEXT
+  fi
+
+  if [[ ! -f "$FIELD_KIT/Sheets/messy-operator-sheet.csv" ]]; then
+    cat > "$FIELD_KIT/Sheets/messy-operator-sheet.csv" <<'CSV'
+id,account,status,owner,due_date,notes
+1,Northstar Labs,open,Maya S.,5/20/2026,Renewal prep
+2,Bluebird Foods,in-progress,Jules,May 21 2026,Launch checklist cleanup
+3,Copperline Studio,BLOCKED, maya,2026-05-22,Needs founder review
+4,Northstar Labs,Open,Maya S,2026/05/20,Duplicate renewal prep
+5,Harbor Metrics,done,Sam R.,05-18-2026,Demo mode feedback
+6,Atlas Bio,wip,jules,2026-05-24,Weekly brief snippet
+TOTAL,,,,,6 rows
+CSV
   fi
 }
 
