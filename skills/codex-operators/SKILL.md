@@ -11,20 +11,23 @@ This skill is the launcher and operator helper. The interactive trainer app is t
 
 ## Start Workflow
 
-1. Find or create the local trainer repo.
+1. Run the launcher helper from this skill folder when possible:
+   `bash scripts/start-codex-operators.sh`
+2. If the launcher is unavailable, do the same workflow manually:
+   Find or create the local trainer repo.
    - If the current workspace is already the trainer repo, use it.
    - Otherwise look for `codex-operators-interactive` or `codex-interactive` in common project folders such as Desktop, Documents, and `~/Desktop/fun-projects`.
    - If no local copy exists, clone `https://github.com/sumaerjolly/codex-operators-interactive.git` into a sensible project folder.
-2. From the trainer repo root, install dependencies with `npm install` if `node_modules` is missing.
-3. Create or refresh the Desktop Field Kit:
+3. From the trainer repo root, install dependencies with `npm install` if `node_modules` is missing.
+4. Create or refresh the Desktop Field Kit:
    - Target: `~/Desktop/Codex Operators Field Kit`
    - The Field Kit is the user-facing practice workspace.
    - Preserve user outputs unless the user explicitly asks to reset the run.
-4. Start the trainer app with `npm run dev`.
+5. Start the trainer app with `npm run dev`.
    - Keep the dev server running.
    - Read the printed localhost URL. It usually starts at `http://localhost:3000`.
-5. Open the localhost URL in the Codex in-app browser when Browser is available.
-6. Tell the user:
+6. Open the localhost URL in the Codex in-app browser when Browser is available.
+7. Tell the user:
    - The browser is mission control.
    - Codex chat is where they run mission prompts.
    - The Desktop Field Kit is where practice files and proof artifacts live.
@@ -33,9 +36,10 @@ This skill is the launcher and operator helper. The interactive trainer app is t
 
 When the user asks to restart, reset, or start from scratch:
 
-1. Use the trainer app reset route if the local server is running: open `http://localhost:3000/?reset=1` or the active localhost port with `?reset=1`.
-2. If the server is not running, start it first with `npm run dev`, then open the reset URL.
-3. Explain that reset clears generated proof artifacts and progress but keeps the trainer code.
+1. Run `bash scripts/start-codex-operators.sh --reset` when possible.
+2. Use the trainer app reset route if the local server is running: open `http://localhost:3000/?reset=1` or the active localhost port with `?reset=1`.
+3. If the server is not running, start it first with `npm run dev`, then open the reset URL.
+4. Explain that reset clears generated proof artifacts and progress but keeps the trainer code.
 
 ## Mission Workflow
 
