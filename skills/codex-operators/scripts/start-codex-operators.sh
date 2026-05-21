@@ -124,6 +124,7 @@ trainer_url() {
 prepare_field_kit() {
   local dirs=(
     "$FIELD_KIT"
+    "$FIELD_KIT/Inputs"
     "$FIELD_KIT/Proof"
     "$FIELD_KIT/Receipts"
     "$FIELD_KIT/Connector Demos"
@@ -159,6 +160,31 @@ MARKDOWN
 Mission proof files go here when the lesson asks Codex to create something on your Desktop.
 
 Open these files in Codex and in Finder. The point is to verify real local work, not just read a chat reply.
+MARKDOWN
+  fi
+
+  if [[ ! -f "$FIELD_KIT/Inputs/founder-notes.md" ]]; then
+    cat > "$FIELD_KIT/Inputs/founder-notes.md" <<'MARKDOWN'
+# Founder Notes
+
+We are trying to get three operating rhythms under control before the next launch review:
+
+- Support follow-ups are slipping because owner names and account statuses are inconsistent.
+- Investor update material is spread across notes, a messy sheet, and customer snippets.
+- Weekly review prep takes too long because nobody trusts the latest spreadsheet without manual checking.
+- We want Codex to help, but every output needs a proof artifact before it is used.
+
+Constraints:
+
+- Do not modify source files unless explicitly asked.
+- Prefer local demo files when live plugins are not connected.
+- Anything that could affect a customer or external system must be dry-run first.
+
+Done when:
+
+- The operator has one clean work artifact.
+- The artifact includes source notes or verification details.
+- The next action is clear.
 MARKDOWN
   fi
 }
