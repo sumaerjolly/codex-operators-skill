@@ -112,6 +112,11 @@ find_running_url() {
   return 1
 }
 
+trainer_url() {
+  local base="$1"
+  printf '%s/?trainer=1\n' "${base%/}"
+}
+
 prepare_field_kit() {
   local dirs=(
     "$FIELD_KIT"
@@ -208,7 +213,7 @@ main() {
   if url="$(find_running_url)"; then
     echo "Codex Operators app: $app_dir"
     echo "Desktop Field Kit: $FIELD_KIT"
-    echo "Mission screen: $url"
+    echo "Mission screen: $(trainer_url "$url")"
     return 0
   fi
 
@@ -216,7 +221,7 @@ main() {
   url="$SERVER_URL"
   echo "Codex Operators app: $app_dir"
   echo "Desktop Field Kit: $FIELD_KIT"
-  echo "Mission screen: $url"
+  echo "Mission screen: $(trainer_url "$url")"
 }
 
 main
