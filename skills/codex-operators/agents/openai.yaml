@@ -1,0 +1,5 @@
+interface:
+  display_name: "Codex Operators"
+  short_description: "Open the Codex Operators training game"
+  default_prompt: "Use $codex-operators to start the Codex Operators interactive trainer."
+
